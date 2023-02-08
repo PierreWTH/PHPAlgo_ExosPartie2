@@ -14,26 +14,24 @@ précisant le nom des champs associés.</p>
 
     <h2> Résultat </h2>
 
-    
-
-<form action="test.php" method="post">
-Nom <br><input type="text" name="nom"><br>
-Prénom <br><input type="text" name="prenom"><br>
-Ville <br><input type="text" name="Ville"><br>
-
 <?php
 
-$nomsInput = array("Nom", "Prénom", "Ville");
+$champs = array(
+    'Nom' => 'text',
+    'Prénom' => 'text',
+    'Ville' => 'text'
+);
 
-function afficherInput($nomsInput){
-    foreach ($nomsInput as $champs);
-        echo 
 
-
-    
+function afficherInput($champs) {
+    echo '<form>';
+    foreach ($champs as $nomchamps => $typechamp){
+        echo '<br><label for="'.$nomchamps.'">'.$nomchamps.'</label><br>';
+        echo '<input id="'.$nomchamps.'" name="'.$nomchamps.'" type="'.$typechamp.'" /><br>';
+    }
 }
 
-
+afficherInput($champs);
 
 ?>
 

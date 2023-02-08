@@ -8,8 +8,6 @@
 </head>
 <body>
 
-<!-- Manque le tri des pays par ordre alphabétique test-->
-
 <h1> Exercice 3 </h1>
 
 <p>Afficher un lien hypertexte permettant d’accéder au site d’Elan Formation. Le lien devra s’ouvrir 

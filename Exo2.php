@@ -10,8 +10,6 @@
     <title>Document</title>
 </head>
 
-<!-- Manque le tri des pays par ordre alphabétique test-->
-
 <style>
 table, th, td {
   border: 1px solid black;
@@ -34,6 +32,8 @@ table, th, td {
     "Allemagne"=>"Berlin",
     "USA"=>"Washington",
     "Italie"=>"Rome");
+
+    ksort($capitales);
     
 
     echo "<table> 
@@ -49,7 +49,7 @@ table, th, td {
             </tr>";
         }
         echo "</table>";
-;
+
 
 ?>
 
