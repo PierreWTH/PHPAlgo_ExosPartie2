@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1> Exercice 11</h1>
+<h1> Exercice 12</h1>
 
 <p>Ecrire une fonction personnalisée qui affiche une date en français (en toutes lettres) à partir d’une 
 chaîne de caractère représentant une date.</p>
@@ -17,24 +17,21 @@ chaîne de caractère représentant une date.</p>
 
 <?php
 
+$tableauValeurs=array(true,"texte",10,25.369,array("valeur1","valeur2"));
 
-$date = "2018-02-23";
-echo formaterDateFr($date);
+function infoVariables($tableauValeurs){
+    foreach ($tableauValeurs as $valeurs){
+        var_dump($valeurs);
+        echo "<br>";
 
-function formaterDateFr($date){
-    
-    $dateF = new DateTime($date);
-    $fmt = new IntlDateFormatter(
-        "fr_FR",
-        IntlDateFormatter::FULL,
-        IntlDateFormatter::NONE,
-        'Europe/Paris',
-        IntlDateFormatter::GREGORIAN 
-    );
-    $fmt->setPattern('EEEE dd MMMM YYYY');
-
-    return $fmt->format($dateF);
+    }
+            
+    return $valeurs;
+      
 }
+
+infoVariables($tableauValeurs)
+
 
 
 ?>
