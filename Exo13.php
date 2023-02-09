@@ -27,40 +27,59 @@ tests pour vérifier la cohérence de la classe Voiture</p>
 <h2> Résultat </h2>
 
 <?php
+/*
 
+Propriétés : variable appartenant a une classe
+Méthode : fonction appartenant a une classe
+*/
 
 class Voiture{
 
     // Déclaration des propriétés
 
-    private string $marque;
-    private string $modele;
-    private int $nbportes;
-    private int $vitesseActuelle;
-    private string $etat;
+    private string $_marque;
+    private string $_modele;
+    private int $_nbportes;
+    private int $_vitesseActuelle;
+    private string $_etat;
 
     // Déclaration des méthodes
 
+        //Construct
+
+    public function __construct(string $marque, string $modele, int $nbportes, int $vitesseActuelle, string $etat){
+        $this->_marque = $marque;
+        $this->_modele = $modele;
+        $this->_nbportes = $nbportes;
+        $this->_vitesseActuelle = $vitesseActuelle;
+        $this->_etat = $etat;
+
+    }
+
+        //Méthodes
+
     public function demarrer(){
-        return $this-> etat
+        echo "La voiture" .$this->marque ." ". $this->modele . "démarre";
     }
     
-    public function accelerer(){
-        return $this -> vitesseActuelle
+    public function accelerer()
+    {
+        $this -> vitesseActuelle += $vitesse;
     }
     
-    public function stopper(){
-        return $this -> etat
-        return $this -> vitesseActuelle
+    public function stopper()
+    {
+        return $this -> etat;
+        
     
     }
 
 }
 
 
-$marque = new Voiture;
-$marque->marque = "Peugeot";
-
+$mavoiture = new Voiture("Toyota", "Aygo");
+$mavoiture->demarrer();
+echo $mavoiture
 
 
 ?>
