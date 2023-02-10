@@ -33,6 +33,24 @@ Propriétés : variable appartenant a une classe
 Méthode : fonction appartenant a une classe
 */
 
+// Déclaration des instances
+
+$v1 = new Voiture("Bugatti", "Chiron", 3);
+$v2 = new Voiture("Fiat", "Panda", 5);
+$v3 = new Voiture("Toyota", "Yaris", 5);
+
+
+// A compléter pour avoir Infos Véhicule 1, Info véhicule 2...
+$i = 0;
+
+$nbvoiture = array($v1, $v2, $v3);
+
+
+foreach ($nbvoiture as $value){
+    $i ++;
+}
+
+
 class Voiture{
 
     // Déclaration des propriétés
@@ -52,7 +70,33 @@ class Voiture{
         $this->_modele = $modele;
         $this->_nbportes = $nbportes;
 
+    }
 
+    // Get et set marque
+
+    public function getMarque(){
+        return $this->_marque;
+    }
+    public function setMarque(string $marque){
+        $this->_marque = $marque;
+    }
+
+    // Get et set modele
+
+    public function getModele(){
+        return $this->_modele;
+    }
+    public function setModele(string $modele){
+        $this->_marque = $modele;
+    }
+
+    // Get et set nbportes
+
+    public function getNbportes(){
+        return $this->_nbportes;
+    }
+    public function setNbportes(int $nbportes){
+        $this->_marque = $nbportes;
     }
 
     //METHODES\\
@@ -116,7 +160,8 @@ class Voiture{
         //Méthode Afficher informations
 
     public function afficherInformations()
-    {
+    {   
+        echo "Info véhicule :";
         echo "<br>*****************";
         echo "<br>Nom et modèle du véhicule : ".$this->_marque. " ".$this->_modele;
         echo "<br>Nombre de portes : ".$this->_nbportes;
@@ -132,18 +177,33 @@ class Voiture{
         }
         
         echo "<br>Sa vitesse actuelle est de " .$this->_vitesseActuelle." km/h.";
-        
-
     }
-}
 
-$mavoiture = new Voiture("Citroen", "Berlingo", 3);
-$mavoiture->demarrer();
-$mavoiture ->accelerer(135);
-$mavoiture ->vitesseActuelle();
-$mavoiture ->afficherInformations();
+    public function ralentirVitesse(int $nbkm)
+    {
+        if ($this->_vitesseActuelle <= 0)
+        {
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." ne peux pas ralentir car il est déja à l'arret ! ";
+        }    
 
+        if ($nbkm > $this->_vitesseActuelle)
+        {
+            echo "<br>Le véhicule ne peux pas ralentir plus qu'il accèlère ! ";
+        }    
+        else
+        {
+            $this->_vitesseActuelle = $this->_vitesseActuelle - $nbkm;
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." ralentit de " .$nbkm. "km/h";
+            echo "<br>Il est maintenant a une vitesse de " .$this->_vitesseActuelle. " km/h";
+        
+        }
+        
+    }
 
+}   
+
+$v1->demarrer();
+$v2->accelerer(80);
 
 ?>
 </body>
