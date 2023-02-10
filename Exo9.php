@@ -19,8 +19,12 @@ valeurs en paramètre ("Monsieur","Madame","Mademoiselle")</p>
 
 <?php
 
+// Définition du tableau
+
 $nomsradio = array("Masculin", "Feminin", "Autre"
 );
+
+// Définition de la fonction et boucle sur balises HTML
 
 function afficherRadio($nomsradio) {
     echo '<form>';

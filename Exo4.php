@@ -27,23 +27,15 @@ nouvel onglet et le tableau sera trié par ordre alphabétique de la capitale).<
 
 <?php
 
+// Définition du tableau
+
   $capitales = array(
     "France"=>"Paris",
     "Allemagne"=>"Berlin",
     "USA"=>"Washington",
     "Italie"=>"Rome");
 
-// $liens = array(
-//     "Paris"=> '<a href="https://fr.wikipedia.org/wiki/Paris"target="_blank">Lien</a>',
-//     "Berlin"=> '<a href="https://fr.wikipedia.org/wiki/Berlin"target="_blank">Lien</a>',
-//     "Washington"=> '<a href="https://fr.wikipedia.org/wiki/Washington_(district_de_Columbia)"target="_blank">Lien</a>',
-//     "Rome"=> '<a href="https://fr.wikipedia.org/wiki/Rome"target="_blank">Lien</a>'
-// );
-    // echo $capitales["France"];
-    
-// $lien = "<a href='https://example.com'>Website</a>";
-// $lien = "<a href=https://fr.wikipedia.org/wiki/" . $capitale .">Plop</a>";
-// echo $lien;
+// Structure tu tableau HTML
 
     echo "<table> 
             <tr>
@@ -51,6 +43,8 @@ nouvel onglet et le tableau sera trié par ordre alphabétique de la capitale).<
                 <th>Capitale</th>
                 <th>Lien Wiki</th>
             </tr>";
+
+// Boucle sur le tableau
 
     foreach ($capitales as $pays=>$capitale){
 

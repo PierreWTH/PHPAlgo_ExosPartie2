@@ -6,6 +6,7 @@
 
 <?php
 
+// strtoupper pour mettre en majuscule + balise HTML font color pour le texte en rouge
 
 function convertirMajRouge($texte) {
     $texterouge = "<font color='red'>".$texte."</font>";

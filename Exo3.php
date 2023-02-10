@@ -19,6 +19,8 @@ dans un nouvel onglet (_blank).</p>
 
 <?php
 
+// "_blank" pour ouvrir dans un nouvel onglet
+
 echo '<a href="https://elan-formation.eu/accueil"target="_blank">Site de Elan Formation</a>'
 
 ?>

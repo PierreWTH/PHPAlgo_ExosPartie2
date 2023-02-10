@@ -22,7 +22,7 @@ de validation (submit)</p>
 
 <?php
 
-// Tableaux
+// Définition des tableaux
 
 $champs = array(
     'Nom' => 'text',
@@ -38,14 +38,18 @@ $nomsradio = array("Masculin", "Feminin", "Autre"
 $formation = array("Developpeur logiciel", "Designer web", "Integrateur", "Chef de projet");
 
 
-// Fonction
+// Définition de la fonction 
 
 function afficherFormulaire($champs, $nomsradio, $formation) {
+    
+    // Champs a remplir
     echo '<form>';
     foreach ($champs as $nomchamps => $typechamp){
         echo '<br><label for="'.$nomchamps.'">'.$nomchamps.'</label><br>';
         echo '<input id="'.$nomchamps.'" name="'.$nomchamps.'" type="'.$typechamp.'" /><br>';
     }
+
+    // Boutons radios
     echo "</form>";
     echo "<legend> Précisez votre sexe :  </legend>";
     echo '<form>';
@@ -53,6 +57,8 @@ function afficherFormulaire($champs, $nomsradio, $formation) {
         echo '<br><input type="radio" name="radio_group".>'.$genre.'</label>';
     }
     echo "<br><br>";
+
+    // Liste déroulante
     echo "Quelle formation souhaitez vous rejoindre ? ";
     echo "<br><br>";
     echo "<select>";
@@ -67,6 +73,9 @@ afficherFormulaire($champs, $nomsradio, $formation);
 ?>
 
 <br><br>
+
+<!--Submit-->
+
 <input type="submit" value="Envoyer le formulaire">
 
 </body>

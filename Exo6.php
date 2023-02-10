@@ -15,7 +15,12 @@
 
 <select>
       <?php
+
+// Définition du tableau
+
       $elements = array("Monsieur", "Madame", "Mademoiselle");
+
+// Définition de la fonction et boucle sur le HTML
       
     function alimenterListeDeroulante($elements){
       foreach($elements as $value){

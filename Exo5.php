@@ -16,11 +16,15 @@ précisant le nom des champs associés.</p>
 
 <?php
 
+// Définition du tableau
+
 $champs = array(
     'Nom' => 'text',
     'Prénom' => 'text',
     'Ville' => 'text'
 );
+
+// Définition de la fonction et boucle sur le HTML
 
 
 function afficherInput($champs) {

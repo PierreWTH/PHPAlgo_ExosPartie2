@@ -21,6 +21,8 @@ Créer une fonction personnalisée permettant d’afficher l’image N fois à l
 
 $url = "<img src=http://my.mobirise.com/data/userpic/764.jpg>";
 
+// Fonction avec boucle while
+
 function repeterImage($url, $nombre){
     while ($nombre > 0){
     echo $url;

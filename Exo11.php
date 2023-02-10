@@ -21,8 +21,12 @@ chaîne de caractère représentant une date.</p>
 $date = "2018-02-23";
 echo formaterDateFr($date);
 
+// Définition de la fonction
+
 function formaterDateFr($date){
-    
+
+    // Utilisation intldateformatter
+
     $dateF = new DateTime($date);
     $fmt = new IntlDateFormatter(
         "fr_FR",
@@ -31,6 +35,8 @@ function formaterDateFr($date){
         'Europe/Paris',
         IntlDateFormatter::GREGORIAN 
     );
+
+    //Mise en forme de la date
     $fmt->setPattern('EEEE dd MMMM YYYY');
 
     return $fmt->format($dateF);

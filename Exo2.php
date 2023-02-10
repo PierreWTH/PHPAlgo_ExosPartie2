@@ -25,7 +25,7 @@ table, th, td {
 
     <?php
 
-    
+    //Définition du tableau
 
     $capitales = array(
     "France"=>"Paris",
@@ -33,14 +33,19 @@ table, th, td {
     "USA"=>"Washington",
     "Italie"=>"Rome");
 
+    // ksort() pour trier les clés par ordre alphabétiques
+
     ksort($capitales);
     
+    // Structure du tableau HTML
 
     echo "<table> 
             <tr>
                 <th>Pays</th>
                 <th>Capitale</th>
             </tr>";
+
+    // Boucle sur le tableau
 
     foreach ($capitales as $pays=>$capitale){
         echo "<tr>

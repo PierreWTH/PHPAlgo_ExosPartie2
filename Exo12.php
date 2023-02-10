@@ -17,7 +17,12 @@ chaîne de caractère représentant une date.</p>
 
 <?php
 
+// Définition du tableau
+
 $tableauValeurs=array(true,"texte",10,25.369,array("valeur1","valeur2"));
+
+
+// Définition de la fonction et boucle sur le tableau
 
 function infoVariables($tableauValeurs){
     foreach ($tableauValeurs as $valeurs){

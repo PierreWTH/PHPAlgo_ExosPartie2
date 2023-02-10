@@ -19,13 +19,17 @@ dans le tableau associatif si la case est cochée ou non.</p>
 
 <?php
 
-// Manque la verification de la case cochée
+// Manque la verification de la case cochée \\
+
+// Définition du tableau
 
 $elements = array(
     'checkbox1' => 'Choix 1',
     'checkbox2' =>'Choix 2',
     'checkbox3' => 'Choix 3',
 );
+
+// Définiton de la fonction et boucle sur le HTML
 
 function afficherInput($elements) {
     echo '<form>';
