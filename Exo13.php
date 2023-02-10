@@ -40,46 +40,109 @@ class Voiture{
     private string $_marque;
     private string $_modele;
     private int $_nbportes;
-    private int $_vitesseActuelle;
-    private string $_etat;
-
+    private int $_vitesseActuelle = 0;
+    private bool $_demarrer = False;
     // Déclaration des méthodes
 
-        //Construct
+    //Construct
 
-    public function __construct(string $marque, string $modele, int $nbportes, int $vitesseActuelle, string $etat){
+    public function __construct(string $marque, string $modele, int $nbportes)
+    {
         $this->_marque = $marque;
         $this->_modele = $modele;
         $this->_nbportes = $nbportes;
-        $this->_vitesseActuelle = $vitesseActuelle;
-        $this->_etat = $etat;
+
 
     }
 
-        //Méthodes
+    //METHODES\\
 
-    public function demarrer(){
-        echo "La voiture" .$this->marque ." ". $this->modele . "démarre";
-    }
-    
-    public function accelerer()
+        //Méthode demarrer
+
+    public function demarrer()
     {
-        $this -> vitesseActuelle += $vitesse;
+        if ($this->_demarrer == true)
+        {
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." est déja en marche";
+        }
+        else
+        {
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." démarre";
+        }
+        $this->_demarrer = true;
+    
     }
     
+        // Méthode accelerer
+
+    public function accelerer(int $vitesse)
+        
+    {   if ($this->_demarrer == true)
+        {
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." accèlere de " .$vitesse. " km/h";
+            $this->_vitesseActuelle = $vitesse;
+        }
+        else
+        {
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." veut accèlerer de " .$vitesse. " km/h.";
+            echo "<br>Pour accélerer, il faut démarrer le véhicule " .$this->_marque. " ".$this->_modele. "";
+        }
+    }
+    
+        // Méthode stopper
+
     public function stopper()
     {
-        return $this -> etat;
+        if ($this->_demarrer == false)
+        {
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." est déja à l'arret ! ";
+        }    
+        else
+        {
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." est stoppé";
+            $this->_demarrer = false;
+        }
         
-    
     }
 
+        //Méthode vitesse actuelle
+
+    public function vitesseActuelle()
+    {
+        echo "<br>La vitesse du véhicule ".$this->_marque. " ".$this->_modele." est de " .$this->_vitesseActuelle. " km/h.";
+    }
+
+
+        //Méthode Afficher informations
+
+    public function afficherInformations()
+    {
+        echo "<br>*****************";
+        echo "<br>Nom et modèle du véhicule : ".$this->_marque. " ".$this->_modele;
+        echo "<br>Nombre de portes : ".$this->_nbportes;
+
+        if ($this->_demarrer == true)
+        {
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." est à l'arret ! ";
+        }    
+        else
+        {
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." est démarré";
+            $this->_demarrer = false;
+        }
+        
+        echo "<br>Sa vitesse actuelle est de " .$this->_vitesseActuelle." km/h.";
+        
+
+    }
 }
 
-
-$mavoiture = new Voiture("Toyota", "Aygo");
+$mavoiture = new Voiture("Citroen", "Berlingo", 3);
 $mavoiture->demarrer();
-echo $mavoiture
+$mavoiture ->accelerer(135);
+$mavoiture ->vitesseActuelle();
+$mavoiture ->afficherInformations();
+
 
 
 ?>
