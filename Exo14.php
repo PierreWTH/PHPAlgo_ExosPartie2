@@ -29,6 +29,7 @@ class Voiture{
 
     private string $_marque;
     private string $_modèle;
+    
 
     // Construct
 
@@ -36,14 +37,14 @@ class Voiture{
     {
         $this->_marque = $marque;
         $this->_modele = $modele;
-
+        
     }
 
     // Get et set marque 
 
     public function getMarque(){
         return $this->_marque;
-    }
+    }  
     public function setMarque(string $marque){
         $this->_marque = $marque;
     }
@@ -58,15 +59,51 @@ class Voiture{
         $this->_marque = $modele;
     }
 
-    // METHODES\\
+    // MéthodeGetInfos()
 
-
-
+    public function getInfos(){
+        echo "<br>La marque du véhicule est : ".$this->_marque. " et son modèle est : ".$this->_modele.".";
+        }
 }
 
+class VoitureElec extends Voiture{ 
+
+    private int $_autonomie;
+
+   // Get et set autonomie
+
+    public function getAutonomie(){
+    return $this->_autonomie;
+    }
+
+    public function setAutonomie(int $autonomie){
+    $this->_autonomie = $autonomie;
+    } 
+
+    // Construct
+
+    public function __construct(string $marque, string $modele, $autonomie)
+    {
+        $this->_marque = $marque;
+        $this->_modele = $modele;
+        $this->_autonomie = $autonomie;
+    }
+    
+    // Méthode GetInfo()
+
+    public function getInfos(){
+    echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." à une autonomie de ".$this->_autonomie." kilomètres.";
+    }
+}
+
+$v1 = new Voiture("Mercedes", "Classe S");
+$v2 = new VoitureElec("Renault", "Zoe", 100);
+$v1 -> getInfos();
+$v2 -> getInfos();
 
 
 
 ?>
 </body>
 </html>
+
