@@ -33,24 +33,6 @@ Propriétés : variable appartenant a une classe
 Méthode : fonction appartenant a une classe
 */
 
-// Déclaration des instances
-
-$v1 = new Voiture("Bugatti", "Chiron", 3);
-$v2 = new Voiture("Fiat", "Panda", 5);
-$v3 = new Voiture("Toyota", "Yaris", 5);
-
-
-// A compléter pour avoir Infos Véhicule 1, Info véhicule 2...
-$i = 0;
-
-$nbvoiture = array($v1, $v2, $v3);
-
-
-foreach ($nbvoiture as $value){
-    $i ++;
-}
-
-
 class Voiture{
 
     // Déclaration des propriétés
@@ -60,6 +42,8 @@ class Voiture{
     private int $_nbportes;
     private int $_vitesseActuelle = 0;
     private bool $_demarrer = False;
+    public static int $_count = 0;
+
     // Déclaration des méthodes
 
     //Construct
@@ -69,6 +53,7 @@ class Voiture{
         $this->_marque = $marque;
         $this->_modele = $modele;
         $this->_nbportes = $nbportes;
+        Voiture::$_count++;
 
     }
 
@@ -107,11 +92,11 @@ class Voiture{
     {
         if ($this->_demarrer == true)
         {
-            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." est déja en marche";
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." est déja en marche <br><br>";
         }
         else
         {
-            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." démarre";
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." démarre <br><br>";
         }
         $this->_demarrer = true;
     
@@ -123,12 +108,12 @@ class Voiture{
         
     {   if ($this->_demarrer == true)
         {
-            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." accèlere de " .$vitesse. " km/h";
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." accèlere de " .$vitesse. " km/h <br>";
             $this->_vitesseActuelle = $vitesse;
         }
         else
         {
-            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." veut accèlerer de " .$vitesse. " km/h.";
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." veut accèlerer de " .$vitesse. " km/h. <br>";
             echo "<br>Pour accélerer, il faut démarrer le véhicule " .$this->_marque. " ".$this->_modele. "";
         }
     }
@@ -159,16 +144,16 @@ class Voiture{
 
         //Méthode Afficher informations
 
-    public function afficherInformations()
-    {   
-        echo "Info véhicule :";
+    public function afficherInformations(){   
+
+        echo "Info véhicule : ".Voiture::$_count;
         echo "<br>*****************";
         echo "<br>Nom et modèle du véhicule : ".$this->_marque. " ".$this->_modele;
         echo "<br>Nombre de portes : ".$this->_nbportes;
 
-        if ($this->_demarrer == true)
+        if ($this->_demarrer == False)
         {
-            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." est à l'arret ! ";
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." est à l'arret !";
         }    
         else
         {
@@ -176,14 +161,17 @@ class Voiture{
             $this->_demarrer = false;
         }
         
-        echo "<br>Sa vitesse actuelle est de " .$this->_vitesseActuelle." km/h.";
+        echo "<br>Sa vitesse actuelle est de " .$this->_vitesseActuelle." km/h.<br><br>";
+    
+
     }
+
 
     public function ralentirVitesse(int $nbkm)
     {
         if ($this->_vitesseActuelle <= 0)
         {
-            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." ne peux pas ralentir car il est déja à l'arret ! ";
+            echo "<br>Le véhicule ".$this->_marque. " ".$this->_modele." ne peux pas ralentir car il est déja à l'arret !";
         }    
 
         if ($nbkm > $this->_vitesseActuelle)
@@ -202,8 +190,18 @@ class Voiture{
 
 }   
 
+// Déclaration des instances
+
+$v1 = new Voiture("Bugatti", "Chiron", 3);
 $v1->demarrer();
-$v2->accelerer(80);
+$v1->accelerer(30);
+$v1->afficherInformations();
+
+$v2 = new Voiture("Fiat", "Panda", 5);
+$v2->afficherInformations();
+
+$v3 = new Voiture("Toyota", "Yaris", 5);
+$v3->afficherInformations();
 
 ?>
 </body>
